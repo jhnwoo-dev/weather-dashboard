@@ -7,6 +7,7 @@ var apiKey = "8ddb894288e98c698578a2a957dbf1d5";
 var currentDate = dayjs().format("MMM-DD, YYYY");
 //Variables for buttons
 var searchBtn = $("#searchBtn");
+var citySearch = $("#city-search");
 //Variables for the user selected city
 var searchCity = $("#searched-city");
 var searchTemp = $("#temp");
@@ -16,6 +17,7 @@ var searchHumidity = $("#humidity");
 //Setting event listener for search button
 searchBtn.on("click", function (event) {
     event.preventDefault();
+
     //Grab the text of the city name searched
     var cityName = citySearch[0].value;
     //To prevent users from inputting nothing
@@ -23,7 +25,7 @@ searchBtn.on("click", function (event) {
         alert("Please input something.");
         return;
     }
-    historyButtons();
+
     //Seting variables for utilizing the geocoder API and forecast API
     var geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
 
@@ -127,21 +129,3 @@ searchBtn.on("click", function (event) {
                 });
         });
 });
-
-function historyButtons() {
-    var cityName = citySearch[0].value;
-    var weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`;
-    fetch(weatherUrl).then(function (response2) {
-        if (response2.ok === true) {
-            var searchedBtn = document.createElement("btn");
-            searchedBtn.textContent = cityName;
-            searchedBtn.setAttribute("type", "button");
-            searchedBtn.setAttribute(
-                "class",
-                "button is-info is-normal is-focused"
-            );
-            var searchHistory = $("search-history");
-            searchHistory.append(searchedBtn);
-        }
-    });
-}
