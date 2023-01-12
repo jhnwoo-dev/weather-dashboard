@@ -8,49 +8,58 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css">
 
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
+
     <header class="hero is-link">
         <div class="hero-body">
-            <p class="title has-text-centered">
-                Weather Dashboard
-            </p>
+            <p class="title has-text-centered">Weather Dashboard</p>
         </div>
     </header>
 
     <main>
         <div class="container">
             <div class="columns">
+                <!-- Search button area -->
                 <div class="column is-one-fifth">
                     <div>
                         <h3 class="title is-3">Search for a City:</h3>
-                        <form action="">
-                            <input id="city-search" class="input is-info" type="text" placeholder="ex. Seattle">
-                            <button class="button is-info">Go</button>
-                        </form>
+                        <input id="city-search" class="input is-info is-hover" type="text" placeholder="ex. Seattle">
                     </div>
+                    <div class="buttons is-grouped is-centered mt-2">
+                        <button class="button is-info is-normal is-focused" id="searchBtn">Search</button>
+                    </div>
+
+                    <div id="search-history"></div>
+
                 </div>
 
                 <div class="column">
-                    <div>
-                        <p class="title" id="searched-city">City (MM/DD/YYYY)</p>
-                        <p id="weather">This is where the weather of today will display.</p>
-                        <p id="temp">This is where the temp of today will display.</p>
-                        <p id="wind">This is where the wind of today will display.</p>
-                        <p id="humidity">This is where the humidity of today will display.</p>
-                    </div>
+                    <!-- Main display for the searched city -->
+                    <section class="section box">
+                        <div class="title" id="searched-city"></div>
+                        <div class="block" id="temp"></div>
+                        <div class="block" id="wind"></div>
+                        <div class="block" id="humidity"></div>
+                    </section>
 
-                    <div class="nes-container is-rounded">
-                        <h4 class="title is-4">5 Day Forecast</h4>
-                    </div>
-                    <p id="weather-5-day">This is where the weather of forecast will display.</p>
-                    <p id="temp-5-day">This is where the temp of forecast will display.</p>
-                    <p id="wind-5-day">This is where the wind of forecast will display.</p>
-                    <p id="humidity-5-day">This is where the humidity of forecast will display.</p>
+                    <!--Display of 5 day forecast  -->
+                    <section class="ml-6 box">
+                        <div class="columns">
+                            <div class="column forecast"></div>
+                            <div class="column forecast"></div>
+                            <div class="column forecast"></div>
+                            <div class="column forecast"></div>
+                            <div class="column forecast"></div>
+                        </div>
+                    </section>
                 </div>
             </div>
+
+        </div>
+        </div>
     </main>
 
 
