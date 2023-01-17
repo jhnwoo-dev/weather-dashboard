@@ -27,7 +27,7 @@ searchBtn.on("click", function (event) {
     }
 
     //Seting variables for utilizing the geocoder API and forecast API
-    var geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
+    var geocodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
 
     fetch(geocodeUrl)
         .then(function (response) {
@@ -54,7 +54,7 @@ searchBtn.on("click", function (event) {
                     var userWeatherIcon = document.createElement("img");
                     userWeatherIcon.setAttribute(
                         "src",
-                        "http://openweathermap.org/img/w/" + userIcon + ".png"
+                        "https://openweathermap.org/img/w/" + userIcon + ".png"
                     );
                     searchCity.append(userWeatherIcon);
 
@@ -103,7 +103,7 @@ searchBtn.on("click", function (event) {
                         var forecastIcon = document.createElement("img");
                         forecastIcon.setAttribute(
                             "src",
-                            "http://openweathermap.org/img/w/" +
+                            "https://openweathermap.org/img/w/" +
                                 forecast5DayIcon +
                                 ".png"
                         );
